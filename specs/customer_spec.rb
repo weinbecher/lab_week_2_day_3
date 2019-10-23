@@ -38,11 +38,11 @@ def test_customer_get_drink
   assert_equal(1, @customer.drinks_count)
 end
 
-#
-# def test_customer_spend_money
-#   @customer.spend_money(@drink1)
-#   assert_equal(47, @customer.wallet)
-# end
+
+def test_customer_spend_money
+  @customer.spend_money(@drink1)
+  assert_equal(47, @customer.wallet)
+end
 
 
 
