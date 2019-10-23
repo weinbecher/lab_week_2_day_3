@@ -1,9 +1,9 @@
 require("minitest/autorun")
 require("minitest/rg")
-require_relative("../pub.rb")
-require_relative("../drink.rb")
-require_relative("../customer.rb")
-require_relative("../food.rb")
+require_relative("../pub")
+require_relative("../drink")
+require_relative("../customer")
+require_relative("../food")
 
 
 class PubTest < Minitest::Test
@@ -41,8 +41,6 @@ class PubTest < Minitest::Test
   def test_sell_drink_to_customer
     @pub.add_drink(@drink1)
     @pub.add_drink(@drink2)
-    p @pub.alcohol
-
     @pub.sell_drink(@drink1)
     assert_equal(1, @pub.stock_count)
   end
@@ -72,11 +70,16 @@ class PubTest < Minitest::Test
   end
 
   def test_stock_detail
-    @pub.add_drink(@drink1)
-    @pub.add_drink(@drink1)
-    p @pub.alcohol
+    @pub.add_stock(@drink1)
+    @pub.add_stock(@drink1)
     assert_equal(2, @pub.stock_detail(@drink1))
+  end
 
+  def test_stock_value
+    @pub.add_stock(@drink1)
+    @pub.add_stock(@drink1)
+    # @pub.add_stock(@drink2)
+    assert_equal(6,@pub.stock_value)
   end
 
 
