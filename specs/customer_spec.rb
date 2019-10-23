@@ -13,6 +13,11 @@ def setup()
   @drink3 = Drink.new("Rum", 4)
   @drink4 = Drink.new("Whiskey", 5)
   @pub = Pub.new("Sandys", 1000)
+
+  @pub.add_drink(@drink1)
+  @pub.add_drink(@drink2)
+  @pub.add_drink(@drink3)
+  @pub.add_drink(@drink4)
 end
 
 
@@ -29,7 +34,6 @@ def test_customer_drinks_starts_empty
 end
 
 def test_customer_get_drink
-  @alcohol = [@drink1, @drink2]
   @customer.get_drink(@pub, @drink1)
   assert_equal(1, @customer.drinks_count)
 end
